@@ -105,7 +105,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eyc-0o-0ov" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1804.3478260869567" y="253.79464285714283"/>
+            <point key="canvasLocation" x="1590" y="254"/>
+        </scene>
+        <!--Auth View Controller-->
+        <scene sceneID="PDA-Fy-7iB">
+            <objects>
+                <viewController storyboardIdentifier="AuthVC" id="j4a-3e-q8e" customClass="AuthViewController" customModule="Fitgoal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ox0-co-3On">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="rG6-6T-iKc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fan-qB-ZyU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2278" y="254"/>
         </scene>
     </scenes>
     <resources>

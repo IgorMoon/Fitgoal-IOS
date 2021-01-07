@@ -15,6 +15,7 @@
 		787E9C5225A45749006E4D0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 787E9C5025A45749006E4D0A /* LaunchScreen.storyboard */; };
 		787E9CC125A4912A006E4D0A /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787E9CC025A4912A006E4D0A /* LaunchViewController.swift */; };
 		787E9CC425A49C4A006E4D0A /* IntoductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787E9CC325A49C4A006E4D0A /* IntoductionViewController.swift */; };
+		78D66BF325A775E9009AE6D9 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D66BF225A775E9009AE6D9 /* AuthViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		787E9C5325A45749006E4D0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		787E9CC025A4912A006E4D0A /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		787E9CC325A49C4A006E4D0A /* IntoductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntoductionViewController.swift; sourceTree = "<group>"; };
+		78D66BF225A775E9009AE6D9 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				787E9CC025A4912A006E4D0A /* LaunchViewController.swift */,
 				787E9CC325A49C4A006E4D0A /* IntoductionViewController.swift */,
+				78D66BF225A775E9009AE6D9 /* AuthViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 				787E9C4625A45747006E4D0A /* AppDelegate.swift in Sources */,
 				787E9C4825A45747006E4D0A /* SceneDelegate.swift in Sources */,
 				787E9CC425A49C4A006E4D0A /* IntoductionViewController.swift in Sources */,
+				78D66BF325A775E9009AE6D9 /* AuthViewController.swift in Sources */,
 				787E9CC125A4912A006E4D0A /* LaunchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

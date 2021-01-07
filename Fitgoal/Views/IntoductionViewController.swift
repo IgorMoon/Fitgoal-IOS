@@ -30,7 +30,9 @@ class IntoductionViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.layoutIfNeeded()
-
+        
+        scrollView.delegate = self
+        
         self.toolBar.setBackgroundImage(UIImage(),
                                         forToolbarPosition: .any,
                                         barMetrics: .default)
@@ -42,8 +44,6 @@ class IntoductionViewController: UIViewController, UIScrollViewDelegate {
         
         self.toolBar.items = [skipButton, spaceButton, nextButton]
         
-        
-
         for index in 0..<textImgs.count{
             let pageView = UIView(frame: CGRect(x: CGFloat(index) * (scrollWidth), y: 0, width: scrollWidth, height: scrollHeight))
             scrollView.addSubview(pageView)
@@ -59,60 +59,39 @@ class IntoductionViewController: UIViewController, UIScrollViewDelegate {
         scrollView.contentSize = CGSize(width: scrollWidth * CGFloat(textImgs.count), height: 0)
         scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
+        
+        self.scrollView.contentSize.height = 1.0
             
         pageControl.numberOfPages = textImgs.count
         pageControl.currentPage = 0
         
         }
     
-//    private func configureScrollView() {
-//        //set up scrollView
-//        for index in 0..<textImgs.count{
-//            let pageView = UIView(frame: CGRect(x: CGFloat(index) * (scrollWidth), y: 0, width: scrollWidth, height: scrollHeight))
-//            scrollView.addSubview(pageView)
-//
-//            //text images
-//            let textImage = UIImageView.init(image: UIImage.init(named: textImgs[index]))
-//            textImage.frame = CGRect(x:100,y:350,width:320,height:270)
-//            textImage.contentMode = .scaleAspectFit
-//            textImage.center = CGPoint(x:scrollWidth/2.2,y: scrollHeight - 310)
-//            pageView.addSubview(textImage)
-//
-//        }
-//        scrollView.contentSize = CGSize(width: scrollWidth * CGFloat(textImgs.count), height: 0)
-//        scrollView.isPagingEnabled = true
-//        scrollView.showsHorizontalScrollIndicator = false
-//
-//    }
-    
     @objc func nextButtonClicked(_ button: UIBarButtonItem){
-//        guard button.tag < 3 else {
-//            return
-//        }
-        let x = scrollView.contentOffset.x
-        scrollView.setContentOffset(CGPoint(x: x + scrollWidth , y: 0), animated: true)
-    }
         
-//        scrollView.contentSize = CGSize(width: scrollWidth * CGFloat(textImgs.count), height: scrollHeight)
-//
-//        self.scrollView.contentSize.height = 1.0
-//
-//        pageControl.numberOfPages = textImgs.count
-//        pageControl.currentPage = 0
-//    }
-    
-//    @IBAction func pageChanged(_ sender: Any) {
-//            scrollView!.scrollRectToVisible(CGRect(x: scrollWidth * CGFloat ((pageControl?.currentPage)!), y: 0, width: scrollWidth, height: scrollHeight), animated: true)
-//        }
+        let x = scrollView.contentOffset.x
+        let page = (x)/scrollWidth
+        print(page)
+        guard page < 2 else {
+            let authVC = storyboard?.instantiateViewController(withIdentifier: "AuthVC") as! AuthViewController
+            
+            authVC.modalPresentationStyle = .fullScreen
+            authVC.modalTransitionStyle = .crossDissolve
+            self.present(authVC, animated: true)
+            return
+        }
+        scrollView.setContentOffset(CGPoint(x: x + scrollWidth , y: 0), animated: true)
+        pageControl.currentPage = Int(page) + 1
+        imageView.image = UIImage(named: imgs[Int(page) + 1])
+    }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-            setIndiactorAndImageForCurrentPage()
-        }
-
+        setIndiactorAndImageForCurrentPage()
+    }
+    
     func setIndiactorAndImageForCurrentPage()  {
-        let page = (scrollView?.contentOffset.x)!/scrollWidth
-            pageControl?.currentPage = Int(page)
-
+        let page = (scrollView.contentOffset.x)/scrollWidth
+        pageControl.currentPage = Int(page)
         imageView.image = UIImage(named: imgs[Int(page)])
         }
 }
