@@ -39,7 +39,7 @@ class IntoductionViewController: UIViewController, UIScrollViewDelegate {
         self.toolBar.setShadowImage(UIImage(), forToolbarPosition: .any)
         
         let nextButton = UIBarButtonItem(title: "NEXT", style: .plain, target: self, action: #selector(nextButtonClicked(_:)))
-        let skipButton = UIBarButtonItem(title: "SKIP", style: .plain, target: self, action: nil)
+        let skipButton = UIBarButtonItem(title: "SKIP", style: .plain, target: self, action: #selector(skipButtonClicked(_:)))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         
         self.toolBar.items = [skipButton, spaceButton, nextButton]
@@ -66,6 +66,14 @@ class IntoductionViewController: UIViewController, UIScrollViewDelegate {
         pageControl.currentPage = 0
         
         }
+    
+    @objc func skipButtonClicked(_ button: UIBarButtonItem){
+        let authVC = storyboard?.instantiateViewController(withIdentifier: "AuthVC") as! AuthViewController
+        
+        authVC.modalPresentationStyle = .fullScreen
+        authVC.modalTransitionStyle = .crossDissolve
+        self.present(authVC, animated: true)
+    }
     
     @objc func nextButtonClicked(_ button: UIBarButtonItem){
         
