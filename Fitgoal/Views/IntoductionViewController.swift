@@ -19,66 +19,91 @@ class IntoductionViewController: UIViewController, UIScrollViewDelegate {
     
     var imgs = ["lifeImage", "styleImage", "healthImage"]
     var textImgs = ["LifeText", "StyleText", "HealthText"]
-     
-    var page = 0
     
     override func viewDidLayoutSubviews() {
-            scrollWidth = scrollView.frame.size.width
-            scrollHeight = scrollView.frame.size.height
+        super.viewDidLayoutSubviews()
+        scrollWidth = scrollView.frame.size.width
+        scrollHeight = scrollView.frame.size.height
+//        configureScrollView()
         }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.layoutIfNeeded()
-        
+
         self.toolBar.setBackgroundImage(UIImage(),
                                         forToolbarPosition: .any,
                                         barMetrics: .default)
         self.toolBar.setShadowImage(UIImage(), forToolbarPosition: .any)
         
-        let nextBtn = UIBarButtonItem(title: "NEXT", style: .plain, target: self, action: nil)
-        let skipBtn = UIBarButtonItem(title: "SKIP", style: .plain, target: self, action: nil)
-        let spaceBtn = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-      
-        toolBar.items = [skipBtn, spaceBtn, nextBtn]
+        let nextButton = UIBarButtonItem(title: "NEXT", style: .plain, target: self, action: #selector(nextButtonClicked(_:)))
+        let skipButton = UIBarButtonItem(title: "SKIP", style: .plain, target: self, action: nil)
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         
-        self.scrollView.delegate = self
-        scrollView.isPagingEnabled = true
-        scrollView.showsHorizontalScrollIndicator = false
-        scrollView.showsVerticalScrollIndicator = false
+        self.toolBar.items = [skipButton, spaceButton, nextButton]
         
-        var frame = CGRect(x: 0, y: -62, width: 0, height: 0)
         
-        for index in 0..<textImgs.count {
-            frame.origin.x = scrollWidth * CGFloat(index) + 20.5
-            frame.size = CGSize(width: scrollWidth, height: scrollHeight)
 
-            let slide = UIView(frame: frame)
-                 
-            let textImages = UIImageView.init(image: UIImage.init(named: textImgs[index]))
-            textImages.frame = CGRect(x:100,y:350,width:320,height:270)
-            textImages.contentMode = .scaleAspectFit
-            textImages.center = CGPoint(x:scrollWidth/2.2,y: scrollHeight - 310)
-
-            slide.addSubview(textImages)
-            scrollView.addSubview(slide)
+        for index in 0..<textImgs.count{
+            let pageView = UIView(frame: CGRect(x: CGFloat(index) * (scrollWidth), y: 0, width: scrollWidth, height: scrollHeight))
+            scrollView.addSubview(pageView)
             
-            nextBtn.tag = index + 1
-            
+            //text images
+            let textImage = UIImageView.init(image: UIImage.init(named: textImgs[index]))
+            textImage.frame = CGRect(x:100,y:350,width:320,height:270)
+            textImage.contentMode = .scaleAspectFit
+            textImage.center = CGPoint(x:scrollWidth/2.2,y: scrollHeight - 310)
+            pageView.addSubview(textImage)
         }
         
-        scrollView.contentSize = CGSize(width: scrollWidth * CGFloat(textImgs.count), height: scrollHeight)
-        
-        self.scrollView.contentSize.height = 1.0
-
+        scrollView.contentSize = CGSize(width: scrollWidth * CGFloat(textImgs.count), height: 0)
+        scrollView.isPagingEnabled = true
+        scrollView.showsHorizontalScrollIndicator = false
+            
         pageControl.numberOfPages = textImgs.count
         pageControl.currentPage = 0
         
-    }
-    
-    @IBAction func pageChanged(_ sender: Any) {
-            scrollView!.scrollRectToVisible(CGRect(x: scrollWidth * CGFloat ((pageControl?.currentPage)!), y: 0, width: scrollWidth, height: scrollHeight), animated: true)
         }
+    
+//    private func configureScrollView() {
+//        //set up scrollView
+//        for index in 0..<textImgs.count{
+//            let pageView = UIView(frame: CGRect(x: CGFloat(index) * (scrollWidth), y: 0, width: scrollWidth, height: scrollHeight))
+//            scrollView.addSubview(pageView)
+//
+//            //text images
+//            let textImage = UIImageView.init(image: UIImage.init(named: textImgs[index]))
+//            textImage.frame = CGRect(x:100,y:350,width:320,height:270)
+//            textImage.contentMode = .scaleAspectFit
+//            textImage.center = CGPoint(x:scrollWidth/2.2,y: scrollHeight - 310)
+//            pageView.addSubview(textImage)
+//
+//        }
+//        scrollView.contentSize = CGSize(width: scrollWidth * CGFloat(textImgs.count), height: 0)
+//        scrollView.isPagingEnabled = true
+//        scrollView.showsHorizontalScrollIndicator = false
+//
+//    }
+    
+    @objc func nextButtonClicked(_ button: UIBarButtonItem){
+//        guard button.tag < 3 else {
+//            return
+//        }
+        let x = scrollView.contentOffset.x
+        scrollView.setContentOffset(CGPoint(x: x + scrollWidth , y: 0), animated: true)
+    }
+        
+//        scrollView.contentSize = CGSize(width: scrollWidth * CGFloat(textImgs.count), height: scrollHeight)
+//
+//        self.scrollView.contentSize.height = 1.0
+//
+//        pageControl.numberOfPages = textImgs.count
+//        pageControl.currentPage = 0
+//    }
+    
+//    @IBAction func pageChanged(_ sender: Any) {
+//            scrollView!.scrollRectToVisible(CGRect(x: scrollWidth * CGFloat ((pageControl?.currentPage)!), y: 0, width: scrollWidth, height: scrollHeight), animated: true)
+//        }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
             setIndiactorAndImageForCurrentPage()
@@ -87,11 +112,7 @@ class IntoductionViewController: UIViewController, UIScrollViewDelegate {
     func setIndiactorAndImageForCurrentPage()  {
         let page = (scrollView?.contentOffset.x)!/scrollWidth
             pageControl?.currentPage = Int(page)
-            
+
         imageView.image = UIImage(named: imgs[Int(page)])
         }
-    
-    @IBAction func nextButtonClicked(_ : UIBarButtonItem?){
-        scrollView.setContentOffset(CGPoint(x: scrollView.frame.size.width * CGFloat(), y: 0), animated: true)
-    }
 }

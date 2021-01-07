@@ -100,7 +100,7 @@
                         <outlet property="imageView" destination="Ixi-07-1nn" id="8ut-p9-wF9"/>
                         <outlet property="pageControl" destination="gh3-EK-6t1" id="ApB-1k-sHG"/>
                         <outlet property="scrollView" destination="sR8-ab-ufR" id="B7o-CQ-0sj"/>
-                        <outlet property="toolBar" destination="Iwf-8H-usa" id="02w-Px-R9U"/>
+                        <outlet property="toolBar" destination="Iwf-8H-usa" id="8Jg-zc-XPZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eyc-0o-0ov" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
