@@ -1,19 +1,19 @@
 {
   "images" : [
     {
-      "filename" : "screenBackgroundFull1.png",
+      "filename" : "buttonSocialTwitter.png",
       "scale" : "1x",
       "idiom" : "universal"
     },
     {
       "scale" : "2x",
       "idiom" : "universal",
-      "filename" : "screenBackgroundFull1@2x.png"
+      "filename" : "buttonSocialTwitter@2x.png"
     },
     {
+      "scale" : "3x",
       "idiom" : "universal",
-      "filename" : "screenBackgroundFull1@3x.png",
-      "scale" : "3x"
+      "filename" : "buttonSocialTwitter@3x.png"
     }
   ],
   "info" : {

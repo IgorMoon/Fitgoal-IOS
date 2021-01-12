@@ -13,7 +13,8 @@ class IntoductionViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var imageView: UIImageView!
-
+    @IBOutlet weak var textImageView: UIImageView!
+    
     var scrollWidth: CGFloat! = 0.0
     var scrollHeight: CGFloat! = 0.0
     
@@ -53,6 +54,8 @@ class IntoductionViewController: UIViewController, UIScrollViewDelegate {
             textImage.frame = CGRect(x:100,y:350,width:320,height:270)
             textImage.contentMode = .scaleAspectFit
             textImage.center = CGPoint(x:scrollWidth/2.2,y: scrollHeight - 310)
+//            textImageView.image = UIImage(named: tex)
+            pageView.addSubview(textImageView)
             pageView.addSubview(textImage)
         }
         
@@ -61,7 +64,7 @@ class IntoductionViewController: UIViewController, UIScrollViewDelegate {
         scrollView.showsHorizontalScrollIndicator = false
         
         self.scrollView.contentSize.height = 1.0
-            
+        
         pageControl.numberOfPages = textImgs.count
         pageControl.currentPage = 0
         

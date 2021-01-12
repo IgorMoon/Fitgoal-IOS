@@ -11,29 +11,43 @@
         <scene sceneID="EHf-IW-A2E">
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                    <view key="view" contentMode="scaleToFill" id="45B-yx-fan">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="screenBackgroundFull1" translatesAutoresizingMaskIntoConstraints="NO" id="xRQ-Bb-pqb">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="screenBackgroundFull1" translatesAutoresizingMaskIntoConstraints="NO" id="qME-Tg-XaS">
                                 <rect key="frame" x="-10" y="-32" width="434" height="945"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="brandLogoSign" translatesAutoresizingMaskIntoConstraints="NO" id="0fx-uC-yhn">
-                                <rect key="frame" x="172" y="333" width="70" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="brandLogoTypeWhite" translatesAutoresizingMaskIntoConstraints="NO" id="9k4-Oh-lwv">
-                                <rect key="frame" x="136" y="388" width="142" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K5Y-6u-bsn">
+                                <rect key="frame" x="0.0" y="318.5" width="414" height="269"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brandLogoSign" translatesAutoresizingMaskIntoConstraints="NO" id="Su1-s9-er9">
+                                        <rect key="frame" x="189" y="16" width="36" height="36"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brandLogoTypeWhite" translatesAutoresizingMaskIntoConstraints="NO" id="FCr-yl-nAl">
+                                        <rect key="frame" x="155.5" y="64" width="103" height="42"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="FCr-yl-nAl" firstAttribute="centerX" secondItem="K5Y-6u-bsn" secondAttribute="centerX" id="DMe-56-NBk"/>
+                                    <constraint firstItem="Su1-s9-er9" firstAttribute="top" secondItem="K5Y-6u-bsn" secondAttribute="top" constant="16" id="Ft9-iz-XpI"/>
+                                    <constraint firstItem="Su1-s9-er9" firstAttribute="centerX" secondItem="K5Y-6u-bsn" secondAttribute="centerX" id="YCd-vS-zc1"/>
+                                    <constraint firstItem="FCr-yl-nAl" firstAttribute="top" secondItem="Su1-s9-er9" secondAttribute="bottom" constant="12" id="dO3-0c-aVg"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="lUf-BX-0IH"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="xRQ-Bb-pqb" secondAttribute="bottom" constant="-17" id="3fq-k5-9IG"/>
-                            <constraint firstItem="xRQ-Bb-pqb" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="-10" id="J9y-4T-XKJ"/>
-                            <constraint firstAttribute="trailing" secondItem="xRQ-Bb-pqb" secondAttribute="trailing" constant="-10" id="M8L-tI-0b3"/>
-                            <constraint firstItem="xRQ-Bb-pqb" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="-32" id="ywH-NY-7GR"/>
+                            <constraint firstAttribute="bottom" secondItem="qME-Tg-XaS" secondAttribute="bottom" constant="-17" id="0KW-FS-e5Z"/>
+                            <constraint firstItem="K5Y-6u-bsn" firstAttribute="leading" secondItem="lUf-BX-0IH" secondAttribute="leading" id="0Zg-lk-JaF"/>
+                            <constraint firstItem="K5Y-6u-bsn" firstAttribute="centerY" secondItem="lUf-BX-0IH" secondAttribute="centerY" id="2Kl-C1-LKw"/>
+                            <constraint firstItem="K5Y-6u-bsn" firstAttribute="height" secondItem="45B-yx-fan" secondAttribute="height" multiplier="0.3" priority="250" id="S9k-Vn-nOb"/>
+                            <constraint firstItem="qME-Tg-XaS" firstAttribute="top" secondItem="45B-yx-fan" secondAttribute="top" constant="-32" id="U4F-Qq-ccO"/>
+                            <constraint firstItem="K5Y-6u-bsn" firstAttribute="trailing" secondItem="lUf-BX-0IH" secondAttribute="trailing" id="YRh-O9-d8g"/>
+                            <constraint firstAttribute="trailing" secondItem="qME-Tg-XaS" secondAttribute="trailing" constant="-10" id="dLU-V3-WgY"/>
+                            <constraint firstItem="qME-Tg-XaS" firstAttribute="leading" secondItem="45B-yx-fan" secondAttribute="leading" constant="-10" id="ryb-Nx-Kyr"/>
                         </constraints>
                     </view>
                 </viewController>
