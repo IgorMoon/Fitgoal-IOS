@@ -11,9 +11,10 @@ class IntoductionViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
-    @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var textImageView: UIImageView!
+    
+    @IBOutlet weak var skipButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
     
     var scrollWidth: CGFloat! = 0.0
     var scrollHeight: CGFloat! = 0.0
@@ -34,28 +35,15 @@ class IntoductionViewController: UIViewController, UIScrollViewDelegate {
         
         scrollView.delegate = self
         
-        self.toolBar.setBackgroundImage(UIImage(),
-                                        forToolbarPosition: .any,
-                                        barMetrics: .default)
-        self.toolBar.setShadowImage(UIImage(), forToolbarPosition: .any)
-        
-        let nextButton = UIBarButtonItem(title: "NEXT", style: .plain, target: self, action: #selector(nextButtonClicked(_:)))
-        let skipButton = UIBarButtonItem(title: "SKIP", style: .plain, target: self, action: #selector(skipButtonClicked(_:)))
-        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        
-        self.toolBar.items = [skipButton, spaceButton, nextButton]
-        
         for index in 0..<textImgs.count{
             let pageView = UIView(frame: CGRect(x: CGFloat(index) * (scrollWidth), y: 0, width: scrollWidth, height: scrollHeight))
             scrollView.addSubview(pageView)
             
-            //text images
             let textImage = UIImageView.init(image: UIImage.init(named: textImgs[index]))
             textImage.frame = CGRect(x:100,y:350,width:320,height:270)
             textImage.contentMode = .scaleAspectFit
             textImage.center = CGPoint(x:scrollWidth/2.2,y: scrollHeight - 310)
-//            textImageView.image = UIImage(named: tex)
-            pageView.addSubview(textImageView)
+
             pageView.addSubview(textImage)
         }
         
@@ -70,15 +58,7 @@ class IntoductionViewController: UIViewController, UIScrollViewDelegate {
         
         }
     
-    @objc func skipButtonClicked(_ button: UIBarButtonItem){
-        let authVC = storyboard?.instantiateViewController(withIdentifier: "AuthVC") as! AuthViewController
-        
-        authVC.modalPresentationStyle = .fullScreen
-        authVC.modalTransitionStyle = .crossDissolve
-        self.present(authVC, animated: true)
-    }
-    
-    @objc func nextButtonClicked(_ button: UIBarButtonItem){
+    @IBAction func nextButtonTap(_ sender: UIButton) {
         
         let x = scrollView.contentOffset.x
         let page = (x)/scrollWidth
@@ -96,6 +76,14 @@ class IntoductionViewController: UIViewController, UIScrollViewDelegate {
         imageView.image = UIImage(named: imgs[Int(page) + 1])
     }
     
+    @IBAction func skipButtonTap(_ sender: UIButton) {
+        let authVC = storyboard?.instantiateViewController(withIdentifier: "AuthVC") as! AuthViewController
+        
+        authVC.modalPresentationStyle = .fullScreen
+        authVC.modalTransitionStyle = .crossDissolve
+        self.present(authVC, animated: true)
+    }
+    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         setIndiactorAndImageForCurrentPage()
     }
@@ -104,5 +92,5 @@ class IntoductionViewController: UIViewController, UIScrollViewDelegate {
         let page = (scrollView.contentOffset.x)/scrollWidth
         pageControl.currentPage = Int(page)
         imageView.image = UIImage(named: imgs[Int(page)])
-        }
+    }
 }
