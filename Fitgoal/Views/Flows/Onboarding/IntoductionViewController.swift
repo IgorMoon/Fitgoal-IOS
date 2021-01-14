@@ -21,8 +21,9 @@ class IntoductionViewController: UIViewController, UIScrollViewDelegate {
     var scrollWidth: CGFloat! = 0.0
     var scrollHeight: CGFloat! = 0.0
     
-    var extrasText = ["lifeImage", "styleImage", "healthImage"]
-    var descriptionsText = ["LifeText", "StyleText", "HealthText"]
+    var imgs = [ "lifeImage", "styleImage", "healthImage"]
+    var extrasText = ["Your life", "Your style", "Your health"]
+    var descriptionsText = ["Create your own fitness Routine where ever you are.", "Control your own fitness Routine where ever you are.", "Feel better like never before start today."]
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -37,14 +38,15 @@ class IntoductionViewController: UIViewController, UIScrollViewDelegate {
         scrollView.delegate = self
         
         for index in 0..<descriptionsText.count{
-            let pageView = UIView(frame: CGRect(x: CGFloat(index) * (scrollWidth), y: 0, width: scrollWidth, height: scrollHeight))
-            scrollView.addSubview(pageView)
+//            let pageView = UIView(frame: CGRect(x: CGFloat(index) * (scrollWidth), y: 0, width: 272, height: 270))
+//            scrollView.addSubview(pageView)
             
-            let contentView = ContentView(frame: CGRect(x: 32, y: 360, width: 272, height: 270))
+            let contentView = ContentView(frame: CGRect(x: 32 + (scrollWidth * CGFloat(index)), y: 402, width: 272, height: 270))
             
+//            pageView.backgroundColor = UIColor(ciColor: .cyan)
             contentView.updateLables(extrasText: extrasText[index], descriptionText: descriptionsText[index])
             
-            pageView.addSubview(contentView)
+            scrollView.addSubview(contentView)
         }
         
         scrollView.contentSize = CGSize(width: scrollWidth * CGFloat(descriptionsText.count), height: 0)
@@ -72,7 +74,7 @@ class IntoductionViewController: UIViewController, UIScrollViewDelegate {
         }
         scrollView.setContentOffset(CGPoint(x: x + scrollWidth , y: 0), animated: true)
         pageControl.currentPage = Int(page) + 1
-        imageView.image = UIImage(named: extrasText[Int(page) + 1])
+        imageView.image = UIImage(named: imgs[Int(page) + 1])
     }
     
     @IBAction func skipButtonTap(_ sender: UIButton) {
@@ -90,6 +92,6 @@ class IntoductionViewController: UIViewController, UIScrollViewDelegate {
     func setIndiactorAndImageForCurrentPage()  {
         let page = (scrollView.contentOffset.x)/scrollWidth
         pageControl.currentPage = Int(page)
-        imageView.image = UIImage(named: extrasText[Int(page)])
+        imageView.image = UIImage(named: imgs[Int(page)])
     }
 }

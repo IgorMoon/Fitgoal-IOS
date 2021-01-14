@@ -12,21 +12,25 @@ final class ContentView: UIView {
     @IBOutlet private var titleLable: UILabel!
     @IBOutlet private var extrasLable: UILabel!
     @IBOutlet private var descriptionLable: UILabel!
+    @IBOutlet var containerView: UIView!
+    
     
     private let nibName = "ContentView"
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        commonInit()
+        self.commonInit()
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        self.commonInit()
     }
 
     private func commonInit(){
-        Bundle.main.loadNibNamed(nibName, owner: self, options: nil)
-        addSubview(self.view)
+        let nib = UINib(nibName: String(describing: type(of: self)), bundle: Bundle(for: type(of: self)))
+        nib.instantiate(withOwner: self, options: nil)
+        addSubview(containerView)
     }
     
     func updateLables(extrasText: String, descriptionText: String) {

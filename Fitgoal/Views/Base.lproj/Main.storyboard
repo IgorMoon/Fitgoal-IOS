@@ -79,6 +79,39 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="uJ6-e3-hmA">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="gh3-EK-6t1">
+                                <rect key="frame" x="146" y="782" width="122.5" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </pageControl>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lifeImage" translatesAutoresizingMaskIntoConstraints="NO" id="Ixi-07-1nn">
+                                <rect key="frame" x="12" y="0.0" width="402" height="402"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Ixi-07-1nn" secondAttribute="height" multiplier="1:1" id="bBG-0q-0IZ"/>
+                                    <constraint firstAttribute="width" secondItem="Ixi-07-1nn" secondAttribute="height" multiplier="1:1" id="tb6-qK-BsA"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="bBG-0q-0IZ"/>
+                                        <exclude reference="tb6-qK-BsA"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="bBG-0q-0IZ"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="tb6-qK-BsA"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sR8-ab-ufR">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="O0H-rx-A3Y"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="mXF-dA-zuY"/>
+                            </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N4v-yG-v7r">
                                 <rect key="frame" x="0.0" y="818" width="414" height="44"/>
                                 <subviews>
@@ -114,39 +147,6 @@
                                     <constraint firstAttribute="trailing" secondItem="YNL-hw-zKO" secondAttribute="trailing" constant="32" id="rzY-cD-5mC"/>
                                 </constraints>
                             </view>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="gh3-EK-6t1">
-                                <rect key="frame" x="146" y="782" width="122.5" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </pageControl>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lifeImage" translatesAutoresizingMaskIntoConstraints="NO" id="Ixi-07-1nn">
-                                <rect key="frame" x="12" y="0.0" width="402" height="402"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Ixi-07-1nn" secondAttribute="height" multiplier="1:1" id="bBG-0q-0IZ"/>
-                                    <constraint firstAttribute="width" secondItem="Ixi-07-1nn" secondAttribute="height" multiplier="1:1" id="tb6-qK-BsA"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="bBG-0q-0IZ"/>
-                                        <exclude reference="tb6-qK-BsA"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="bBG-0q-0IZ"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular">
-                                    <mask key="constraints">
-                                        <include reference="tb6-qK-BsA"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sR8-ab-ufR">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <viewLayoutGuide key="contentLayoutGuide" id="O0H-rx-A3Y"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="mXF-dA-zuY"/>
-                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Z8r-cb-rBC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
