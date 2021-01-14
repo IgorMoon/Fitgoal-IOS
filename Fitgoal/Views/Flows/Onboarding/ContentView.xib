@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Oswald-Medium.ttf">
+            <string>Oswald-Medium</string>
+        </array>
+        <array key="Roboto-Light.ttf">
+            <string>Roboto-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ContentView" customModule="Fitgoal" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="274" height="176"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRANSFORM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jbb-RS-4xd">
+                    <rect key="frame" x="0.0" y="8" width="233.5" height="49"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="49" id="eB3-YP-5iC"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Oswald-Medium" family="Oswald" pointSize="49"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your life" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQP-ya-b5h">
+                    <rect key="frame" x="0.0" y="65" width="124" height="42"/>
+                    <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="35"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Bn-1h-meI">
+                    <rect key="frame" x="0.0" y="115" width="272" height="61"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="61" id="AiV-iu-qGx"/>
+                        <constraint firstAttribute="width" constant="272" id="m22-o8-llJ"/>
+                    </constraints>
+                    <attributedString key="attributedText">
+                        <fragment>
+                            <string key="content">Create your own fitness Routine
+</string>
+                            <attributes>
+                                <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <font key="NSFont" size="19" name="Roboto-Light"/>
+                            </attributes>
+                        </fragment>
+                        <fragment content="where ever you are. ">
+                            <attributes>
+                                <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <font key="NSFont" size="19" name="Roboto-Light"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.5" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="1Bn-1h-meI" firstAttribute="top" secondItem="pQP-ya-b5h" secondAttribute="bottom" constant="8" id="7IX-jI-rhd"/>
+                <constraint firstItem="Jbb-RS-4xd" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="DYf-R2-V3I"/>
+                <constraint firstItem="pQP-ya-b5h" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="I7S-fE-raT"/>
+                <constraint firstItem="pQP-ya-b5h" firstAttribute="top" secondItem="Jbb-RS-4xd" secondAttribute="bottom" constant="8" id="MeI-sz-NPb"/>
+                <constraint firstItem="1Bn-1h-meI" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="XPI-5V-YiD"/>
+                <constraint firstItem="Jbb-RS-4xd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="qc3-mM-87j"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="descriptionLable" destination="1Bn-1h-meI" id="TTw-jg-wid"/>
+                <outlet property="extrasLable" destination="pQP-ya-b5h" id="1Uk-G6-6yE"/>
+                <outlet property="titleLable" destination="Jbb-RS-4xd" id="gBi-Pp-9QP"/>
+            </connections>
+            <point key="canvasLocation" x="24.637681159420293" y="41.517857142857139"/>
+        </view>
+    </objects>
+</document>

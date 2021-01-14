@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		784A22EB25AF23D100613053 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784A22EA25AF23D100613053 /* ContentView.swift */; };
+		784A22EE25AF23E700613053 /* ContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 784A22ED25AF23E700613053 /* ContentView.xib */; };
+		784A22F525AF29F400613053 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 784A22F225AF291B00613053 /* Roboto-Light.ttf */; };
+		784A22F825AF2AA400613053 /* Oswald-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 784A22F725AF2AA100613053 /* Oswald-Medium.ttf */; };
 		787E9C4625A45747006E4D0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787E9C4525A45747006E4D0A /* AppDelegate.swift */; };
 		787E9C4825A45747006E4D0A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787E9C4725A45747006E4D0A /* SceneDelegate.swift */; };
 		787E9C4A25A45747006E4D0A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787E9C4925A45747006E4D0A /* ViewController.swift */; };
@@ -24,6 +28,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		784A22EA25AF23D100613053 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		784A22ED25AF23E700613053 /* ContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentView.xib; sourceTree = "<group>"; };
+		784A22F225AF291B00613053 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Light.ttf"; path = "../../../../../Downloads/Roboto/Roboto-Light.ttf"; sourceTree = "<group>"; };
+		784A22F725AF2AA100613053 /* Oswald-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Oswald-Medium.ttf"; path = "../../../../../Downloads/Oswald/static/Oswald-Medium.ttf"; sourceTree = "<group>"; };
 		787E9C4225A45747006E4D0A /* Fitgoal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitgoal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		787E9C4525A45747006E4D0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		787E9C4725A45747006E4D0A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +61,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		784A22F025AF28DA00613053 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				784A22F225AF291B00613053 /* Roboto-Light.ttf */,
+				784A22F725AF2AA100613053 /* Oswald-Medium.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		787E9C3925A45747006E4D0A = {
 			isa = PBXGroup;
 			children = (
@@ -75,11 +92,10 @@
 				787E9C4525A45747006E4D0A /* AppDelegate.swift */,
 				787E9C4725A45747006E4D0A /* SceneDelegate.swift */,
 				787E9C4925A45747006E4D0A /* ViewController.swift */,
-				787E9C4E25A45749006E4D0A /* Assets.xcassets */,
-				787E9C5325A45749006E4D0A /* Info.plist */,
 				787E9C5F25A45CBE006E4D0A /* Views */,
-				787E9C4B25A45747006E4D0A /* Main.storyboard */,
-				787E9C5025A45749006E4D0A /* LaunchScreen.storyboard */,
+				787E9C5325A45749006E4D0A /* Info.plist */,
+				787E9C4E25A45749006E4D0A /* Assets.xcassets */,
+				784A22F025AF28DA00613053 /* fonts */,
 			);
 			path = Fitgoal;
 			sourceTree = "<group>";
@@ -87,6 +103,8 @@
 		787E9C5F25A45CBE006E4D0A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				787E9C5025A45749006E4D0A /* LaunchScreen.storyboard */,
+				787E9C4B25A45747006E4D0A /* Main.storyboard */,
 				7899332425AD9A9B00A0541A /* Flows */,
 			);
 			path = Views;
@@ -115,6 +133,8 @@
 			isa = PBXGroup;
 			children = (
 				787E9CC325A49C4A006E4D0A /* IntoductionViewController.swift */,
+				784A22EA25AF23D100613053 /* ContentView.swift */,
+				784A22ED25AF23E700613053 /* ContentView.xib */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -200,6 +220,9 @@
 				787E9C5225A45749006E4D0A /* LaunchScreen.storyboard in Resources */,
 				787E9C4F25A45749006E4D0A /* Assets.xcassets in Resources */,
 				78DE344F25A8A1E6004A9F77 /* SignUPViewController.xib in Resources */,
+				784A22EE25AF23E700613053 /* ContentView.xib in Resources */,
+				784A22F825AF2AA400613053 /* Oswald-Medium.ttf in Resources */,
+				784A22F525AF29F400613053 /* Roboto-Light.ttf in Resources */,
 				787E9C4D25A45747006E4D0A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,6 +240,7 @@
 				787E9C4825A45747006E4D0A /* SceneDelegate.swift in Sources */,
 				787E9CC425A49C4A006E4D0A /* IntoductionViewController.swift in Sources */,
 				78DE345325A8A58A004A9F77 /* LoginViewController.swift in Sources */,
+				784A22EB25AF23D100613053 /* ContentView.swift in Sources */,
 				78DE344E25A8A1E6004A9F77 /* SignUPViewController.swift in Sources */,
 				78D66BF325A775E9009AE6D9 /* AuthViewController.swift in Sources */,
 				787E9CC125A4912A006E4D0A /* LaunchViewController.swift in Sources */,

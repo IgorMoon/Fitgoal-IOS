@@ -16,17 +16,18 @@ class IntoductionViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     
+    var contentViewdelegate: ContentView?
+    
     var scrollWidth: CGFloat! = 0.0
     var scrollHeight: CGFloat! = 0.0
     
-    var imgs = ["lifeImage", "styleImage", "healthImage"]
-    var textImgs = ["LifeText", "StyleText", "HealthText"]
+    var extrasText = ["lifeImage", "styleImage", "healthImage"]
+    var descriptionsText = ["LifeText", "StyleText", "HealthText"]
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         scrollWidth = scrollView.frame.size.width
         scrollHeight = scrollView.frame.size.height
-//        configureScrollView()
         }
     
     override func viewDidLoad() {
@@ -35,28 +36,26 @@ class IntoductionViewController: UIViewController, UIScrollViewDelegate {
         
         scrollView.delegate = self
         
-        for index in 0..<textImgs.count{
+        for index in 0..<descriptionsText.count{
             let pageView = UIView(frame: CGRect(x: CGFloat(index) * (scrollWidth), y: 0, width: scrollWidth, height: scrollHeight))
             scrollView.addSubview(pageView)
             
-            let textImage = UIImageView.init(image: UIImage.init(named: textImgs[index]))
-            textImage.frame = CGRect(x:100,y:350,width:320,height:270)
-            textImage.contentMode = .scaleAspectFit
-            textImage.center = CGPoint(x:scrollWidth/2.2,y: scrollHeight - 310)
-
-            pageView.addSubview(textImage)
+            let contentView = ContentView(frame: CGRect(x: 32, y: 360, width: 272, height: 270))
+            
+            contentView.updateLables(extrasText: extrasText[index], descriptionText: descriptionsText[index])
+            
+            pageView.addSubview(contentView)
         }
         
-        scrollView.contentSize = CGSize(width: scrollWidth * CGFloat(textImgs.count), height: 0)
+        scrollView.contentSize = CGSize(width: scrollWidth * CGFloat(descriptionsText.count), height: 0)
         scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
         
         self.scrollView.contentSize.height = 1.0
         
-        pageControl.numberOfPages = textImgs.count
+        pageControl.numberOfPages = descriptionsText.count
         pageControl.currentPage = 0
-        
-        }
+    }
     
     @IBAction func nextButtonTap(_ sender: UIButton) {
         
@@ -73,7 +72,7 @@ class IntoductionViewController: UIViewController, UIScrollViewDelegate {
         }
         scrollView.setContentOffset(CGPoint(x: x + scrollWidth , y: 0), animated: true)
         pageControl.currentPage = Int(page) + 1
-        imageView.image = UIImage(named: imgs[Int(page) + 1])
+        imageView.image = UIImage(named: extrasText[Int(page) + 1])
     }
     
     @IBAction func skipButtonTap(_ sender: UIButton) {
@@ -91,6 +90,6 @@ class IntoductionViewController: UIViewController, UIScrollViewDelegate {
     func setIndiactorAndImageForCurrentPage()  {
         let page = (scrollView.contentOffset.x)/scrollWidth
         pageControl.currentPage = Int(page)
-        imageView.image = UIImage(named: imgs[Int(page)])
+        imageView.image = UIImage(named: extrasText[Int(page)])
     }
 }
