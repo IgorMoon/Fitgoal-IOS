@@ -25,6 +25,7 @@
 		78DE345325A8A58A004A9F77 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DE345125A8A58A004A9F77 /* LoginViewController.swift */; };
 		78DE345425A8A58A004A9F77 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78DE345225A8A58A004A9F77 /* LoginViewController.xib */; };
 		78DE345825AB71EE004A9F77 /* WizardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DE345725AB71EE004A9F77 /* WizardViewController.swift */; };
+		7E4963A99D1510DCD3686BC4 /* libPods-Fitgoal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A14D0FCE9EA4E75D88DA353A /* libPods-Fitgoal.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,9 @@
 		78DE345125A8A58A004A9F77 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		78DE345225A8A58A004A9F77 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		78DE345725AB71EE004A9F77 /* WizardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WizardViewController.swift; sourceTree = "<group>"; };
+		A14D0FCE9EA4E75D88DA353A /* libPods-Fitgoal.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Fitgoal.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4B92451BAE1E5B1F2ECF1D6 /* Pods-Fitgoal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fitgoal.release.xcconfig"; path = "Target Support Files/Pods-Fitgoal/Pods-Fitgoal.release.xcconfig"; sourceTree = "<group>"; };
+		B654127AA16A69F86833E15B /* Pods-Fitgoal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fitgoal.debug.xcconfig"; path = "Target Support Files/Pods-Fitgoal/Pods-Fitgoal.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,12 +59,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E4963A99D1510DCD3686BC4 /* libPods-Fitgoal.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		62D8E8295248A0B23649B39C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A14D0FCE9EA4E75D88DA353A /* libPods-Fitgoal.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		784A22F025AF28DA00613053 /* fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +88,8 @@
 			children = (
 				787E9C4425A45747006E4D0A /* Fitgoal */,
 				787E9C4325A45747006E4D0A /* Products */,
+				D7E8BFB5C9410C54AC4B966D /* Pods */,
+				62D8E8295248A0B23649B39C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -159,6 +174,15 @@
 			path = Wizard;
 			sourceTree = "<group>";
 		};
+		D7E8BFB5C9410C54AC4B966D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B654127AA16A69F86833E15B /* Pods-Fitgoal.debug.xcconfig */,
+				B4B92451BAE1E5B1F2ECF1D6 /* Pods-Fitgoal.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -166,6 +190,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 787E9C5625A45749006E4D0A /* Build configuration list for PBXNativeTarget "Fitgoal" */;
 			buildPhases = (
+				58A8B1204AA67883755BAA7F /* [CP] Check Pods Manifest.lock */,
 				787E9C3E25A45747006E4D0A /* Sources */,
 				787E9C3F25A45747006E4D0A /* Frameworks */,
 				787E9C4025A45747006E4D0A /* Resources */,
@@ -228,6 +253,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		58A8B1204AA67883755BAA7F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Fitgoal-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		787E9C3E25A45747006E4D0A /* Sources */ = {
@@ -387,6 +437,7 @@
 		};
 		787E9C5725A45749006E4D0A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B654127AA16A69F86833E15B /* Pods-Fitgoal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -406,6 +457,7 @@
 		};
 		787E9C5825A45749006E4D0A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4B92451BAE1E5B1F2ECF1D6 /* Pods-Fitgoal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

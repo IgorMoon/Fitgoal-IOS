@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class IntoductionViewController: UIViewController, UIScrollViewDelegate {
 
@@ -16,7 +17,10 @@ class IntoductionViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     
-    var contentViewdelegate: ContentView?
+    @IBOutlet weak var containerView: UIView!
+    
+    let topSpacer: UIView = UIView()
+    let botoomSpacer: UIView = UIView()
     
     var scrollWidth: CGFloat! = 0.0
     var scrollHeight: CGFloat! = 0.0
@@ -33,30 +37,61 @@ class IntoductionViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.layoutIfNeeded()
         
         scrollView.delegate = self
         
+        let contentStackView = UIStackView()
+        contentStackView.axis = .horizontal
+        contentStackView.alignment = .fill
+        contentStackView.distribution = .fillEqually
+        
         for index in 0..<descriptionsText.count{
-//            let pageView = UIView(frame: CGRect(x: CGFloat(index) * (scrollWidth), y: 0, width: 272, height: 270))
-//            scrollView.addSubview(pageView)
+            let contentView = ContentView.fromNib()
             
-            let contentView = ContentView(frame: CGRect(x: 32 + (scrollWidth * CGFloat(index)), y: 402, width: 272, height: 270))
-            
-//            pageView.backgroundColor = UIColor(ciColor: .cyan)
             contentView.updateLables(extrasText: extrasText[index], descriptionText: descriptionsText[index])
             
-            scrollView.addSubview(contentView)
+            contentStackView.addArrangedSubview(contentView)
         }
+//
+        scrollView.addSubview(contentStackView)
+//        topSpacer.backgroundColor = .yellow
+//        botoomSpacer.backgroundColor = .brown
+//        containerView.addSubview(botoomSpacer)
+//        containerView.addSubview(topSpacer)
+//        containerView.addSubview(contentStackView)
         
-        scrollView.contentSize = CGSize(width: scrollWidth * CGFloat(descriptionsText.count), height: 0)
         scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
         
-        self.scrollView.contentSize.height = 1.0
-        
         pageControl.numberOfPages = descriptionsText.count
         pageControl.currentPage = 0
+        
+        contentStackView.translatesAutoresizingMaskIntoConstraints = false
+        let constraints = [
+//            topSpacer.leftAnchor.constraint(equalTo: containerView.leftAnchor),
+//            topSpacer.rightAnchor.constraint(equalTo: containerView.rightAnchor),
+////            topSpacer.heightAnchor.constraint(equalTo: botoomSpacer.heightAnchor),
+////            topSpacer.widthAnchor.constraint(equalTo: botoomSpacer.widthAnchor),
+//            topSpacer.topAnchor.constraint(equalTo: containerView.topAnchor),
+//            topSpacer.bottomAnchor.constraint(equalTo: botoomSpacer.topAnchor),
+
+//            botoomSpacer.heightAnchor.constraint(equalTo: topSpacer.heightAnchor),
+//
+//            botoomSpacer.leftAnchor.constraint(equalTo: containerView.leftAnchor),
+//            botoomSpacer.rightAnchor.constraint(equalTo: containerView.rightAnchor),
+////            botoomSpacer.topAnchor.constraint(equalTo: topSpacer.bottomAnchor),
+//            botoomSpacer.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+
+            contentStackView.heightAnchor.constraint(equalToConstant: 270),
+            contentStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: CGFloat(descriptionsText.count)),
+            contentStackView.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: 32),
+            contentStackView.rightAnchor.constraint(equalTo: scrollView.rightAnchor, constant: 32),
+//            contentStackView.topAnchor.constraint(equalTo: containerView.topAnchor),
+//            contentStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            contentStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 673),
+        ]
+        
+        NSLayoutConstraint.activate(constraints)
     }
     
     @IBAction func nextButtonTap(_ sender: UIButton) {

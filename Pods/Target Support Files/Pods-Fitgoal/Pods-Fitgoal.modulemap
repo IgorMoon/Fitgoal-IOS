@@ -1,0 +1,6 @@
+module Pods_Fitgoal {
+  umbrella header "Pods-Fitgoal-umbrella.h"
+
+  export *
+  module * { export * }
+}
